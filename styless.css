@@ -1,0 +1,512 @@
+body {
+    font-family: 'Cormorant Garamond';
+    background-color: #f5f5f5;
+    color: #444;
+    margin: 0;
+    padding: 10px;
+    text-align: center;
+}
+
+h1 {
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    color: #e8c34b;
+    margin-bottom: 20px;
+    font-size: 60px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    letter-spacing: 0px;
+    text-align: left;
+    position: relative;
+
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 12px;
+
+}
+
+h1::after {
+    content: "";
+    display: block;
+    width: 100%;
+    max-width: 500px;
+    height: 2px;
+    background-color: #e8c34b;
+    margin-top: 10px;
+}
+
+
+h2 {
+    font-size: 1.4em;
+    letter-spacing: 1.5px;
+    text-align: left;
+    text-transform: uppercase;
+
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 12px;
+}
+
+.credit {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 1.5em;
+    color: #aaa;
+    font-style: italic;
+    pointer-events: none;
+}
+
+p {
+    color: #777;
+    font-size: 1.3em;
+    margin-top: 1px;
+    text-align: left;
+}
+
+.buscador-container {
+    margin-right: 20px;
+}
+
+.buscador-container label {
+    display: none;
+}
+
+.buscador-container input[type="text"] {
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-family: inherit;
+    width: 200px;
+}
+
+.producto {
+    border: 1px solid #d4af37; /* o el borde que realmente quieras */
+    background-color: white;
+    border-radius: 10px;
+    font-size: 18px;
+    display: inline-block;
+    width: 400px;
+    margin: 20px;
+    padding: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    min-height: 400px;
+    vertical-align: top; /* solo si es necesario */
+}
+
+.producto img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+.btn-agregar {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    margin-top: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.informacion {
+    display: block;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.precio {
+    display: block;
+    margin-top: 10px;
+    font-size: 1.4em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.producto:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.15);
+    z-index: 10;
+}
+
+.producto button {
+    background-color: #d4af37;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    margin-top: 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.producto:hover button {
+    opacity: 1;
+    visibility: visible;
+}
+
+.carrito {
+    margin-top: 50px;
+    padding: 30px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.12);
+    text-align: left;
+    display: inline-block;
+  border: 1px solid #D4AF37;
+}
+
+h3 {
+    font-size: 1.8em;
+}
+
+ul {font-size: 1.3em;
+}
+
+.carrito button {
+    background-color: #d4af37;
+    border: none;
+    color: white;
+    padding: 10px 16px;
+    margin-top: 18px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.carrito button.vaciar {
+    background-color: #d4af37;
+    margin-top: 10px;
+}
+
+.carrito button.vaciar:hover {
+        background-color: #dc3545;
+    }
+
+.carrito button.finalizar {
+        background-color: #d4af37;
+    }
+
+    .carrito button.finalizar:hover {
+        background-color: #28a745;
+    }
+
+@media (max-width: 768px) {
+    h1, h2, p {
+        text-align: center;
+    }
+
+    .producto, .carrito {
+            width: 100%;
+            margin: 10px 0;
+            padding: 15px;
+        }
+
+    h1 {
+        font-size: 2.5em;
+    }
+
+    h2, p {
+        font-size: 1em;
+    }
+}
+
+#mensaje-final {
+    display: none;
+    margin-top: 20px;
+    font-size: 1.2em;
+    padding: 18px 24px;
+    border: 1px solid #d4af37;
+    border-radius: 18px;
+    background-color: #fffdf5;
+    box-shadow: 4px 4px 12px rgba(212, 175, 55, 0.2);
+    font-family: 'TAN Pearl', serif;
+    color: #63b66e;
+    white-space: pre-line;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+
+#mensaje-final button {
+    background-color: #d4af37;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 30px;
+    font-family: 'TAN Pearl', serif;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    float: right;
+    margin-top: 20px;
+    margin-right: 20px;
+    position: static;
+    transform: none;
+}
+
+#mensaje-final button:hover {
+        background-color: #b78e2c;
+        box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    }
+
+.barra-informativa p {
+    background-color: #F1C27D;
+    color: black;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.8em;
+    letter-spacing: 0.1px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+    text-align: center;
+}
+
+footer {
+    background-color: #f5f5f5;
+    color: #444;
+    text-align: center;
+    padding: 20px 10px;
+    font-size: 0.9em;
+    border-top: 1px solid #d4af37;
+    margin-top: 40px;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+footer a {
+    color: #d4af37;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+.encabezado-filtros {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.boton-hamburguesa {
+    background-color: white;
+    color: #D4AF37;
+    font-size: 1em;
+    padding: 10px 16px;
+    border: 1px solid #D4AF37;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Cormorant Garamond', serif;
+    margin-left: 35px;
+}
+
+.boton-hamburguesa:hover {
+    background-color: #D4AF37;
+    color: white;
+}
+
+.contenedor-buscador {
+    flex-grow: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.buscador {
+    padding: 10px 16px;
+    border: 1px solid #D4AF37;
+    border-radius: 8px;
+    font-size: 1em;
+    width: 250px;
+    font-family: 'Cormorant Garamond', serif;
+    margin-right: 37px;
+}
+
+.panel-filtros {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 100vh;
+    background: #fff;
+    border-right: 2px solid #D4AF37;
+    box-shadow: 4px 0 15px rgba(0,0,0,0.2); /* Cambiamos -4px a 4px */
+    padding: 30px 20px;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: 999;
+}
+
+.panel-filtros .cerrar {
+    background: none;
+    border: none;
+    font-size: 2em; /* Ajusta el tamaño de la "X" según necesites */
+    color: #D4AF37; /* Usa el color dorado */
+    cursor: pointer;
+    position: absolute;
+    top: 40px; /* Ajusta la distancia desde la parte superior */
+    right: 30px; /* Ajusta la distancia desde la derecha */
+    padding: 0; /* Elimina el padding para un estilo más minimalista */
+    line-height: 1; /* Ajusta la altura de la línea para centrar verticalmente */
+    z-index: 1000; /* Asegura que esté por encima del contenido del panel */
+}
+
+.panel-filtros .cerrar:hover {
+    color: #b78e2c; /* Un tono más oscuro al pasar el ratón */
+}
+.panel-filtros.mostrar {
+    transform: translateX(0);
+}
+
+.panel-filtros h3 {
+    color: #D4AF37;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+.contenedor-categorias-filtro {
+    display: flex;
+    flex-direction: column; /* Para que los botones aparezcan uno debajo del otro */
+    gap: 10px; /* Espacio entre los botones */
+    margin-top: 20px;
+}
+
+.boton-filtro {
+    background-color: white;
+    color: #D4AF37;
+    border: 1px #D4AF37;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5em;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.boton-filtro:hover {
+    background-color: #D4AF37;
+    color: white;
+}
+
+:root {
+  --color-dorado: #d4af37;
+  --color-texto-principal: #444;
+  --fuente-principal: 'Cormorant Garamond', serif;
+}
+
+#mensaje-final {
+    background-color: #ffffff; /* Blanco */
+    color: black;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1em;
+    letter-spacing: 0.1px;
+    box-sizing: border-box;
+    padding: 20px;
+    line-height: 1.5;
+    text-align: left;
+    border: 1px solid #D4AF37; /* Borde dorado visible */
+    border-radius: 8px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+    /* Eliminamos la posición fixed y las propiedades de centrado en pantalla */
+    /* position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); */
+    z-index: 1001; /* Asegurarse de que esté por encima de otros elementos */
+    width: 70%;
+    max-width: 400px;
+    margin: 20px auto; /* Centrar horizontalmente y añadir margen vertical */
+    /* max-height: 80vh; /* Opcional: Altura máxima relativa a la ventana */
+    overflow-y: auto; /* Opcional: Scroll si el contenido excede la altura */
+}
+
+#mensaje-final h3 {
+    color: #d4af37;
+    font-family: "Cormorant Garamond', serif;
+    font-size: 1.8em; /* Un poco más grande para el título de la ventana */
+    margin-top: 0;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+#mensaje-final h3 {
+    color: #d4af37; /* Color dorado para el título */
+    font-family: "Cormorant Garamond', serif;
+    font-size: 1.5em;
+    margin-top: 0; /* Eliminar el margen superior por defecto del h3 */
+    margin-bottom: -20px; /* Añadir un margen inferior para separar del contenido */
+    text-align: center; /* Centrar el título */
+}
+
+#mensaje-final pre {
+    white-space: pre-wrap; /* Permite que el texto largo se envuelva */
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif; /* Usamos la misma fuente elegante */
+    font-size: 1em;
+    text-transform: lowercase;
+    color: #444; /* Color de texto principal */
+    margin-bottom: 15px;
+    text-align: left; /* Asegurar la alineación a la izquierda del contenido */
+    padding: 15px; /* Reduje el padding para que no sea tan grande */
+    background-color: #f9f9f9; /* Un fondo muy claro para diferenciar el resumen */
+    border: 1px solid #eee; /* Un borde muy sutil para el pre */
+    border-radius: 4px;
+  
+}
+
+#mensaje-final pre .total-destacado {
+    font-size: 1em; /* Un poco más grande */
+    font-weight: bold; /* Para que destaque más */
+    text-transform: uppercase; /* Letras en mayúsculas */
+    color: #D4AF37; /* Color dorado */
+    padding: 5px 10px; /* Espacio alrededor del total */
+    border: 1px solid #D4AF37; /* Borde dorado */
+    border-radius: 4px; /* Bordes redondeados */
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15); /* Sombra sutil */
+    background-color: #fff; /* Fondo blanco para resaltarlo */
+    display: block; /* Para que solo ocupe el ancho del contenido y respete el padding y border */
+    margin-left: 1px; /* Un poco de espacio a la izquierda del "Total pagado:" */
+  margin-top: 50px;
+  text-align: center;
+}
+
+#mensaje-final button {
+    background-color: #d4af37; /* Color dorado para el botón */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: "Cormorant Garamond', serif;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+    display: block; /* Para que el botón ocupe todo el ancho disponible */
+    margin: 15px auto 0; /* Centrar el botón horizontalmente y añadir margen superior */
+    text-decoration: none; /* Evitar la decoración de texto en el botón si se usa como enlace */
+}
+
+#mensaje-final button:hover {
+    background-color: #b78e2c; /* Un tono más oscuro al pasar el ratón */
+}

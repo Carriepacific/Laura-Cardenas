@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Pacific by Carrie</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="barra-informativa">
+        <p id="informacion-extra">REALICE SU PEDIDO ANTES DEL 30 DE ABRIL PARA RECIBIR SU REGALO A TIEMPO PARA EL DÍA DE LA MADRE</p>
+    </div>
+
+    <header>
+        <h1>Pacific by Carrie</h1>
+        <h2>Aretes, anillos, collares y más. ¡Atrévete a ser diferente!</h2>
+        <p class="credit">Por Laura Cárdenas</p>
+        
+        <div class="encabezado-filtros">
+            <button id="abrir-filtros" class="boton-hamburguesa">☰</button>
+
+            <div class="contenedor-buscador">
+
+                <input type="text" id="buscador-panel" placeholder="Buscar..." class="buscador">
+            </div>
+        </div>
+
+        <div id="panel-filtros" class="panel-filtros">
+    <button id="cerrar-filtros" class="cerrar">✕</button>
+    <h3>Filtrar por:</h3>
+    <div class="contenedor-categorias-filtro">
+        <button class="boton-filtro" data-categoria="todos">Todos</button>
+        <button class="boton-filtro" data-categoria="aretes">Aretes</button>
+        <button class="boton-filtro" data-categoria="collares">Collares</button>
+        <button class="boton-filtro" data-categoria="manillas">Manillas</button>
+        <button class="boton-filtro" data-categoria="llaveros">Llaveros</button>
+        <button class="boton-filtro" data-categoria="descuentos">Descuentos</button>
+    </div>
+</div>
+    </header>
+
+    <main>
+        <div id="productos"></div>
+
+        <div class="carrito">
+            <h3>Carrito de Compras</h3>
+            <ul id="lista-carrito"></ul>
+            <p><strong>Total: <span id="total">$0</span></strong></p>
+            <button class="vaciar">Vaciar Carrito</button>
+            <button class="finalizar">Finalizar Compra</button>
+
+            <div id="mensaje-metodo-pago" style="display: none; margin-top: 15px; font-weight: bold;">
+                Seleccione su método de pago:
+            </div>
+
+            <div id="opciones-pago" style="display: none; margin-top: 10px;">
+                <button class="pagar-efectivo">Pagar en Efectivo</button>
+            </div>
+
+            <div id="paypal-button-container" style="display: none; margin-top: 10px;"></div>
+        </div>
+    </main>
+
+    <div id="mensaje-final" style="margin-top: 20px; font-size: 1.2em; color: #28a745;"></div>
+
+    <footer>
+        <p>© 2025 Pacific by Carrie. Todos los derechos reservados.</p>
+        <p><a href="mailto:pacificbycarrie@gmail.com">pacificbycarrie@gmail.com</a></p>
+        <div>
+            <a href="https://www.instagram.com/pacificbycarrie/" target="_blank">Instagram</a> |
+            <a href="https://www.facebook.com/pacificbycarrie" target="_blank">Facebook</a>
+        </div>
+    </footer>
+
+    <script src="https://www.paypal.com/sdk/js?client-id=sb&currency=USD&components=buttons,funding-eligibility"></script>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

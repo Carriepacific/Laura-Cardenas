@@ -1,4 +1,3 @@
-// Productos de ejemplo
 const productos = [
     { id: 1, nombre: "COLLAR LIBELULA ALAMBRISMO", categoria: "collares", precio: 20000, imagen: "https://i.imgur.com/fljogjX.jpeg" },
     { id: 2, nombre: "COLLAR SOL LUXURY", categoria: "collares", precio: 20000, imagen: "https://i.imgur.com/tokQSuc.jpeg" },
@@ -19,32 +18,24 @@ let carrito = [];
 const contenedorProductos = document.getElementById("productos");
 const listaCarrito = document.getElementById("lista-carrito");
 const totalCarrito = document.getElementById("total");
-// const filtroSelect = document.getElementById("filtro"); // Ya no lo necesitamos
 const mensajeFinal = document.getElementById("mensaje-final");
 const mensajeMetodoPago = document.getElementById("mensaje-metodo-pago");
 const opcionesPago = document.getElementById("opciones-pago");
-// const buscadorInputHeader = document.getElementById("buscador-header"); // Comentamos o eliminamos esta línea
 const buscadorInputPanel = document.getElementById("buscador-panel");
 const vaciarCarritoBtn = document.querySelector(".carrito .vaciar");
 const finalizarCompraBtn = document.querySelector(".carrito .finalizar");
 const abrirFiltrosBtn = document.getElementById("abrir-filtros");
 const cerrarFiltrosBtn = document.getElementById("cerrar-filtros");
 const panelFiltros = document.getElementById("panel-filtros");
-const botonesFiltro = document.querySelectorAll(".boton-filtro"); // Seleccionamos los nuevos botones
-
-// Función para buscar productos en el header (puede que no la necesites ahora)
+const botonesFiltro = document.querySelectorAll(".boton-filtro");
 function buscarProductosHeader() {
-    // const textoBusqueda = buscadorInputHeader.value.toLowerCase();
-    // filtrarYMostrarProductos(textoBusqueda);
 }
 
-// Función para buscar productos en el panel de filtros
 function buscarProductosPanel() {
     const textoBusqueda = buscadorInputPanel.value.toLowerCase();
     filtrarYMostrarProductos(textoBusqueda);
 }
 
-// Función para filtrar y mostrar productos según el texto de búsqueda y el filtro de categoría
 function filtrarYMostrarProductos(textoBusqueda = "", filtro = "todos") { // Valor por defecto "todos"
     contenedorProductos.innerHTML = "";
     const filtradosPorCategoria = filtro === "todos" ? productos : productos.filter(p => p.categoria === filtro);
@@ -69,7 +60,6 @@ function filtrarYMostrarProductos(textoBusqueda = "", filtro = "todos") { // Val
         contenedorProductos.innerHTML = "<p>No se encontraron productos.</p>";
     }
 
-    // Añadir event listeners a los nuevos botones de "Comprar"
     const botonesAgregar = document.querySelectorAll(".btn-agregar");
     botonesAgregar.forEach(boton => {
         boton.addEventListener("click", function() {
@@ -79,7 +69,6 @@ function filtrarYMostrarProductos(textoBusqueda = "", filtro = "todos") { // Val
     });
 }
 
-// Agregar al carrito
 function agregarAlCarrito(id) {
     const producto = productos.find(p => p.id === id);
     const productoEnCarrito = carrito.find(p => p.id === id);
@@ -91,7 +80,6 @@ function agregarAlCarrito(id) {
     actualizarCarrito();
 }
 
-// Actualizar carrito
 function actualizarCarrito() {
     listaCarrito.innerHTML = "";
     let total = 0;
@@ -107,7 +95,6 @@ function actualizarCarrito() {
     });
     totalCarrito.textContent = total.toLocaleString("es-CO", { style: "currency", currency: "COP", minimumFractionDigits: 0 });
 
-    // Añadir event listeners a los botones de cambiar cantidad
     const botonesCambiarCantidad = document.querySelectorAll(".cambiar-cantidad");
     botonesCambiarCantidad.forEach(boton => {
         boton.addEventListener("click", function() {
@@ -118,7 +105,6 @@ function actualizarCarrito() {
     });
 }
 
-// Cambiar cantidad de producto en el carrito
 function cambiarCantidad(id, cantidad) {
     const producto = carrito.find(p => p.id === id);
     if (producto) {
@@ -130,7 +116,6 @@ function cambiarCantidad(id, cantidad) {
     }
 }
 
-// Vaciar carrito
 function vaciarCarrito() {
     carrito = [];
     actualizarCarrito();
@@ -141,7 +126,6 @@ function vaciarCarrito() {
     document.getElementById("paypal-button-container").style.display = "none";
 }
 
-// Finalizar compra
 function finalizarCompra() {
     if (carrito.length === 0) {
         mensajeFinal.textContent = "Tu carrito está vacío. Agrega productos antes de finalizar la compra.";
@@ -150,14 +134,12 @@ function finalizarCompra() {
         return;
     }
 
-    // Generar resumen
     let resumen = "Has adquirido:\n";
     carrito.forEach(item => {
         resumen += `- ${item.nombre} (${item.precio.toLocaleString('es-CO', { style: 'currency', currency: 'COP', minimumFractionDigits: 0 })}) x ${item.cantidad}\n`;
     });
     resumen += `<span class="total-destacado">Total a pagar: ${totalCarrito.textContent}</span>`; // Envolvemos toda la frase
 
-    // Mostrar resumen
     mensajeFinal.innerHTML = `
         <h3>¡Resumen de tu compra!</h3>
         <pre>${resumen}</pre>
@@ -165,40 +147,31 @@ function finalizarCompra() {
 
     mensajeFinal.style.color = "#28a745";
     mensajeFinal.style.display = "block";
-
-    // Botón OK para continuar a métodos de pago
     const btnContinuar = document.createElement("button");
     btnContinuar.textContent = "OK";
     btnContinuar.style.marginTop = "10px";
     btnContinuar.addEventListener("click", mostrarMetodosPago);
     mensajeFinal.appendChild(btnContinuar);
 
-    // Ocultar métodos de pago por si estaban visibles
     mensajeMetodoPago.innerHTML = "";
     mensajeMetodoPago.style.display = "none";
     document.getElementById("paypal-button-container").style.display = "none";
 }
 
 function mostrarMetodosPago() {
-    // Ocultar resumen
     mensajeFinal.innerHTML = "";
     mensajeFinal.style.display = "none";
-
-    // Mostrar opciones de pago
     mensajeMetodoPago.innerHTML = `
         <h3 style="margin-top: 20px;">¿Cómo deseas pagar?</h3>
         <p><button id="pagar-paypal">Pagar con PayPal</button></p>
         <p><button class="pagar-efectivo">Pagar con Efectivo</button></p>
     `;
     mensajeMetodoPago.style.display = "block";
-
-    // Event listener para el botón de PayPal (se añade aquí porque el botón se crea dinámicamente)
     const pagarPaypalBtn = document.getElementById("pagar-paypal");
     if (pagarPaypalBtn) {
         pagarPaypalBtn.addEventListener("click", pagarConPaypal);
     }
 
-    // Re-attach event listener for the "Pagar en Efectivo" button if it was somehow detached
     const pagarEfectivoBtn = document.querySelector(".pagar-efectivo");
     if (pagarEfectivoBtn) {
         pagarEfectivoBtn.addEventListener("click", pagarConEfectivo);
@@ -206,11 +179,9 @@ function mostrarMetodosPago() {
 }
 
 function pagarConPaypal() {
-    // Mostrar contenedor de PayPal
     document.getElementById("paypal-button-container").style.display = "block";
 }
 
-// PayPal Smart Button
 if (window.paypal) {
     paypal
         .Buttons({
@@ -242,7 +213,6 @@ if (window.paypal) {
         .render("#paypal-button-container");
 }
 
-// Función para pagar con Efectivo
 function pagarConEfectivo() {
     let mensaje = `
         <h3>¿Cómo deseas pagar con efectivo?</h3>
@@ -253,12 +223,10 @@ function pagarConEfectivo() {
     mensajeMetodoPago.innerHTML = mensaje;
 }
 
-// Redirigir a Efecty
 function redirigirAEfecty() {
     window.location.href = "https://www.efecty.com.co/web/";
 }
 
-// Confirmar pago contra entrega
 function confirmarEfectivo() {
     let formulario = `
         <h3>Por favor ingresa tus datos para confirmar el pago contra entrega</h3>
@@ -279,14 +247,12 @@ function confirmarEfectivo() {
     mensajeMetodoPago.innerHTML = formulario;
 }
 
-// Procesar la compra
 function procesarCompra() {
     mensajeMetodoPago.innerHTML = `
         <h3>Procesando tu compra...</h3>
         <p>Cargando...</p>
     `;
 
-    // Simulación de espera de 2 segundos
     setTimeout(() => {
         mensajeMetodoPago.innerHTML = `
             <h3>Pedido realizado con éxito</h3>
@@ -305,18 +271,15 @@ function reiniciarExperiencia() {
     `;
     mensajeMetodoPago.style.display = "block";
 
-    // Esperar 3 segundos y reiniciar todo manualmente
     setTimeout(() => {
-        // Restaurar UI a estado inicial
         mensajeMetodoPago.innerHTML = "";
         mensajeMetodoPago.style.display = "none";
         mensajeFinal.innerHTML = "";
         mensajeFinal.style.display = "none";
-        filtrarYMostrarProductos(); // Recargar productos
+        filtrarYMostrarProductos();
     }, 3000);
 }
 
-// Cancelar pago
 function cancelarPago() {
     mensajeMetodoPago.style.display = "none";
 }
@@ -329,21 +292,17 @@ cerrarFiltrosBtn.addEventListener("click", () => {
     panelFiltros.classList.remove("mostrar");
 });
 
-// Event listeners para los botones de filtro de categoría
 botonesFiltro.forEach(boton => {
     boton.addEventListener("click", function() {
-        const categoria = this.dataset.categoria; // Obtenemos la categoría del atributo data-categoria
-        filtrarYMostrarProductos(buscadorInputPanel.value, categoria); // Llamamos a la función de filtrado con la categoría
-        panelFiltros.classList.remove("mostrar"); // Cerramos el panel después de seleccionar una categoría (opcional)
+        const categoria = this.dataset.categoria;
+        filtrarYMostrarProductos(buscadorInputPanel.value, categoria);
+        panelFiltros.classList.remove("mostrar");
     });
 });
 
-// Búsqueda en el panel
 buscadorInputPanel.addEventListener("input", buscarProductosPanel);
 
-// Event listeners para los botones del carrito y finalizar compra
 vaciarCarritoBtn.addEventListener("click", vaciarCarrito);
 finalizarCompraBtn.addEventListener("click", finalizarCompra);
 
-// Inicializar la visualización de productos
 filtrarYMostrarProductos();

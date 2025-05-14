@@ -79,7 +79,7 @@ p {
 }
 
 .producto {
-    border: 1px solid #d4af37; /* o el borde que realmente quieras */
+    border: 1px solid #d4af37;
     background-color: white;
     border-radius: 10px;
     font-size: 18px;
@@ -93,7 +93,7 @@ p {
     overflow: hidden;
     text-align: center;
     min-height: 400px;
-    vertical-align: top; /* solo si es necesario */
+    vertical-align: top;
 }
 
 .producto img {
@@ -353,7 +353,7 @@ footer a:hover {
     height: 100vh;
     background: #fff;
     border-right: 2px solid #D4AF37;
-    box-shadow: 4px 0 15px rgba(0,0,0,0.2); /* Cambiamos -4px a 4px */
+    box-shadow: 4px 0 15px rgba(0,0,0,0.2);
     padding: 30px 20px;
     transform: translateX(-100%);
     transition: transform 0.3s ease;
@@ -363,19 +363,19 @@ footer a:hover {
 .panel-filtros .cerrar {
     background: none;
     border: none;
-    font-size: 2em; /* Ajusta el tamaño de la "X" según necesites */
-    color: #D4AF37; /* Usa el color dorado */
+    font-size: 2em;
+    color: #D4AF37;
     cursor: pointer;
     position: absolute;
-    top: 40px; /* Ajusta la distancia desde la parte superior */
-    right: 30px; /* Ajusta la distancia desde la derecha */
-    padding: 0; /* Elimina el padding para un estilo más minimalista */
-    line-height: 1; /* Ajusta la altura de la línea para centrar verticalmente */
-    z-index: 1000; /* Asegura que esté por encima del contenido del panel */
+    top: 40px;
+    right: 30px;
+    padding: 0;
+    line-height: 1;
+    z-index: 1000;
 }
 
 .panel-filtros .cerrar:hover {
-    color: #b78e2c; /* Un tono más oscuro al pasar el ratón */
+    color: #b78e2c;
 }
 .panel-filtros.mostrar {
     transform: translateX(0);
@@ -389,8 +389,8 @@ footer a:hover {
 }
 .contenedor-categorias-filtro {
     display: flex;
-    flex-direction: column; /* Para que los botones aparezcan uno debajo del otro */
-    gap: 10px; /* Espacio entre los botones */
+    flex-direction: column;
+    gap: 10px;
     margin-top: 20px;
 }
 
@@ -418,7 +418,7 @@ footer a:hover {
 }
 
 #mensaje-final {
-    background-color: #ffffff; /* Blanco */
+    background-color: #ffffff;
     color: black;
     font-family: 'Cormorant Garamond', serif;
     font-size: 1em;
@@ -427,73 +427,67 @@ footer a:hover {
     padding: 20px;
     line-height: 1.5;
     text-align: left;
-    border: 1px solid #D4AF37; /* Borde dorado visible */
+    border: 1px solid #D4AF37;
     border-radius: 8px;
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
-    /* Eliminamos la posición fixed y las propiedades de centrado en pantalla */
-    /* position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); */
-    z-index: 1001; /* Asegurarse de que esté por encima de otros elementos */
+    z-index: 1001;
     width: 70%;
     max-width: 400px;
-    margin: 20px auto; /* Centrar horizontalmente y añadir margen vertical */
-    /* max-height: 80vh; /* Opcional: Altura máxima relativa a la ventana */
-    overflow-y: auto; /* Opcional: Scroll si el contenido excede la altura */
+    margin: 20px auto;
+    overflow-y: auto;
 }
 
 #mensaje-final h3 {
     color: #d4af37;
     font-family: "Cormorant Garamond', serif;
-    font-size: 1.8em; /* Un poco más grande para el título de la ventana */
+    font-size: 1.8em;
     margin-top: 0;
     margin-bottom: 15px;
     text-align: center;
 }
 
 #mensaje-final h3 {
-    color: #d4af37; /* Color dorado para el título */
+    color: #d4af37;
     font-family: "Cormorant Garamond', serif;
     font-size: 1.5em;
-    margin-top: 0; /* Eliminar el margen superior por defecto del h3 */
-    margin-bottom: -20px; /* Añadir un margen inferior para separar del contenido */
-    text-align: center; /* Centrar el título */
+    margin-top: 0;
+    margin-bottom: -20px;
+    text-align: center;
 }
 
 #mensaje-final pre {
-    white-space: pre-wrap; /* Permite que el texto largo se envuelva */
-    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif; /* Usamos la misma fuente elegante */
+    white-space: pre-wrap;
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
     font-size: 1em;
     text-transform: lowercase;
-    color: #444; /* Color de texto principal */
+    color: #444;
     margin-bottom: 15px;
-    text-align: left; /* Asegurar la alineación a la izquierda del contenido */
-    padding: 15px; /* Reduje el padding para que no sea tan grande */
-    background-color: #f9f9f9; /* Un fondo muy claro para diferenciar el resumen */
-    border: 1px solid #eee; /* Un borde muy sutil para el pre */
+    text-align: left; 
+    padding: 15px;
+    background-color: #f9f9f9;
+    border: 1px solid #eee;
     border-radius: 4px;
   
 }
 
 #mensaje-final pre .total-destacado {
-    font-size: 1em; /* Un poco más grande */
-    font-weight: bold; /* Para que destaque más */
-    text-transform: uppercase; /* Letras en mayúsculas */
-    color: #D4AF37; /* Color dorado */
-    padding: 5px 10px; /* Espacio alrededor del total */
-    border: 1px solid #D4AF37; /* Borde dorado */
-    border-radius: 4px; /* Bordes redondeados */
-    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15); /* Sombra sutil */
-    background-color: #fff; /* Fondo blanco para resaltarlo */
-    display: block; /* Para que solo ocupe el ancho del contenido y respete el padding y border */
-    margin-left: 1px; /* Un poco de espacio a la izquierda del "Total pagado:" */
+    font-size: 1em;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #D4AF37;
+    padding: 5px 10px;
+    border: 1px solid #D4AF37;
+    border-radius: 4px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
+    background-color: #fff;
+    display: block;
+    margin-left: 1px;
   margin-top: 50px;
   text-align: center;
 }
 
 #mensaje-final button {
-    background-color: #d4af37; /* Color dorado para el botón */
+    background-color: #d4af37;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -502,11 +496,11 @@ footer a:hover {
     font-family: "Cormorant Garamond', serif;
     font-size: 1em;
     transition: background-color 0.3s ease;
-    display: block; /* Para que el botón ocupe todo el ancho disponible */
-    margin: 15px auto 0; /* Centrar el botón horizontalmente y añadir margen superior */
-    text-decoration: none; /* Evitar la decoración de texto en el botón si se usa como enlace */
+    display: block;
+    margin: 15px auto 0;
+    text-decoration: none;
 }
 
 #mensaje-final button:hover {
-    background-color: #b78e2c; /* Un tono más oscuro al pasar el ratón */
+    background-color: #b78e2c;
 }
